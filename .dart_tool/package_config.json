@@ -56,6 +56,12 @@
       "languageVersion": "3.5"
     },
     {
+      "name": "flutter_rating_bar",
+      "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/flutter_rating_bar-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/moayadhamza/flutter/packages/flutter_test",
       "packageUri": "lib/",
