@@ -103,6 +103,27 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Recommended Books",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Text(
+                      "See all",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.lightBlue,
+                      ),
+                    ),
+                  ],
+                ),
+                makeBookSlider(BookList.recommendBooks, context),
 
                 // ListView.builder(
                 //   itemCount: books.length,
