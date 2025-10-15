@@ -8,7 +8,7 @@ Widget makeBookEl(Book book, dynamic context) {
     onTap: () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => DetailScreen()),
+        MaterialPageRoute(builder: (context) => DetailScreen(book: book)),
       );
     },
     child: Container(

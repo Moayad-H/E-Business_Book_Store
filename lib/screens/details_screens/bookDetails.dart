@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:sectionweek2/models/book.dart';
 
 class DetailScreen extends StatefulWidget {
+  final Book book;
+  DetailScreen({required this.book});
   @override
   _DetailScreenState createState() => _DetailScreenState();
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  final Color _accentColor = Color(0xFF272727);
+  final Color _accentColor = Color.fromARGB(255, 105, 104, 104);
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +48,16 @@ class _DetailScreenState extends State<DetailScreen> {
             Align(
               alignment: Alignment(-0.5, -0.9),
               child: Container(
-                width: 150.0,
-                height: 150.0,
+                width: 200.0,
+                height: 200.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(100.0)),
-                  color: Colors.red.withOpacity(0.5),
+                  color: const Color.fromARGB(
+                    255,
+                    244,
+                    130,
+                    54,
+                  ).withOpacity(0.75),
                 ),
               ),
             ),
@@ -60,7 +68,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 height: 180.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(150.0)),
-                  color: Colors.blue.withOpacity(0.4),
+                  color: Colors.blue.withOpacity(0.7),
                 ),
               ),
             ),
@@ -70,9 +78,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 width: 250.0,
                 height: 300.0,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/book10.jpg"),
-                  ),
+                  image: DecorationImage(image: AssetImage(widget.book.image)),
                 ),
               ),
             ),
@@ -82,7 +88,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'No Rules Rules',
+                    widget.book.title,
                     style: TextStyle(
                       fontSize: 23.0,
                       fontWeight: FontWeight.w800,
@@ -91,7 +97,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   const SizedBox(height: 10.0),
                   Text(
-                    'Reed Hastings / Erin Meyer',
+                    widget.book.author ?? '',
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w500,
@@ -103,7 +109,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       RatingBar.builder(
-                        initialRating: 4.5,
+                        initialRating: widget.book.rating ?? 0,
                         minRating: 1,
                         direction: Axis.horizontal,
                         allowHalfRating: true,
@@ -117,7 +123,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                       const SizedBox(width: 10.0),
                       Text(
-                        '4.5',
+                        widget.book.rating?.toString() ?? '',
                         style: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.w700,
@@ -130,7 +136,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 30.0),
                     child: Text(
-                      'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                      widget.book.description ?? '',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 14.0,

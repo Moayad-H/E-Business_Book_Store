@@ -6,10 +6,9 @@ Widget makeBookSlider(List<Book> books, dynamic context) {
   List<Widget> contents = [];
   for (Book book in books) {
     contents.add(makeBookEl(book, context));
-    contents.add(SizedBox(width: 20.0));
   }
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
-    child: Row(children: contents),
+    child: Row(spacing: 20.0, children: contents),
   );
 }
