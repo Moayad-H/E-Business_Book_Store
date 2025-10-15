@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:sectionweek2/screens/home_screens/widgets/searchbar.dart';
 
 class HomeScreen extends StatelessWidget {
   final books = [
@@ -28,23 +29,35 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: books.length,
-        itemBuilder: (context, index) {
-          final book = books[index];
-          return ListTile(
-            title: Text(book['title']!),
-            subtitle: Text(book['author']!),
-            onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => BookDetailsScreen(book: book),
-              //   ),
-              // );
-            },
-          );
-        },
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Column(
+              children: [
+                makeSearchBoxEl(),
+                // ListView.builder(
+                //   itemCount: books.length,
+                //   itemBuilder: (context, index) {
+                //     final book = books[index];
+                //     return ListTile(
+                //       title: Text(book['title']!),
+                //       subtitle: Text(book['author']!),
+                //       onTap: () {
+                //         // Navigator.push(
+                //         //   context,
+                //         //   MaterialPageRoute(
+                //         //     builder: (context) => BookDetailsScreen(book: book),
+                //         //   ),
+                //         // );
+                //       },
+                //     );
+                //   },
+                // ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
