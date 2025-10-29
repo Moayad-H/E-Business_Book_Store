@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
+import 'package:sectionweek2/controllers/cartProvider.dart';
 import 'package:sectionweek2/models/book.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -160,12 +162,20 @@ class _DetailScreenState extends State<DetailScreen> {
                   color: _accentColor,
                 ),
                 child: Center(
-                  child: Text(
-                    'ADD TO CART',
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                  child: InkWell(
+                    onTap: () {
+                      Provider.of<CartProvider>(
+                        context,
+                        listen: false,
+                      ).addToCart(widget.book);
+                    },
+                    child: Text(
+                      'ADD TO CART',
+                      style: TextStyle(
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

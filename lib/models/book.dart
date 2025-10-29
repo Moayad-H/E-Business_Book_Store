@@ -13,6 +13,7 @@ class Book {
   final String? publishedDate;
   final String? isbn;
   final Category category;
+  int quantity;
 
   Book({
     required this.title,
@@ -26,5 +27,6 @@ class Book {
     this.publisher,
     this.publishedDate,
     this.isbn,
+    this.quantity = 1,
   });
 }
