@@ -64,30 +64,20 @@ Widget makeBookVertical(Book book, dynamic context, int index) {
           ),
           const SizedBox(width: 10.0),
           Image.asset(book.image, height: 140.0),
-
+          const SizedBox(width: 10.0),
           Column(
             spacing: 5.0,
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                book.title,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),
-                overflow: TextOverflow.ellipsis,
-              ),
-              Text(
-                '${book.price.toString()} EGP',
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),
-                overflow: TextOverflow.ellipsis,
-              ),
               Row(
-                spacing: 5.0,
+                spacing: 10.0,
                 children: [
                   Text(
-                    book.category.name,
+                    book.title,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 12.0,
-                      color: Colors.grey,
+                      fontSize: 14.0,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -105,6 +95,20 @@ Widget makeBookVertical(Book book, dynamic context, int index) {
                     onRatingUpdate: (rating) {},
                   ),
                 ],
+              ),
+              Text(
+                book.category.name,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12.0,
+                  color: Colors.grey,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                '${book.price.toString()} EGP',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),

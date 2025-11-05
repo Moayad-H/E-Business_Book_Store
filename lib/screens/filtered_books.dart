@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sectionweek2/controllers/categoryProvider.dart';
 import 'package:sectionweek2/data/book_list.dart';
-
-import 'package:sectionweek2/models/category.dart';
 import 'package:sectionweek2/screens/home_screens/widgets/bookSlider.dart';
 
 Widget filteredBooks(BuildContext context) {
@@ -12,6 +10,7 @@ Widget filteredBooks(BuildContext context) {
       return Container(
         child: categoryProvider.selectedCategory == null
             ? Column(
+                spacing: 16.0,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
