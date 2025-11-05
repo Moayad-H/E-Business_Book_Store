@@ -3,6 +3,8 @@ import 'package:sectionweek2/models/book.dart';
 
 /// Book list
 class BookList {
+  static final List<Book> allBooks = [...newArrivalBooks, ...recommendBooks];
+
   static final List<Book> newArrivalBooks = [
     Book(
       title: "SHOE DOG",
