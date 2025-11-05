@@ -3,7 +3,7 @@ import 'package:sectionweek2/models/book.dart';
 
 class CartProvider extends ChangeNotifier {
   List<Book> cartItems = [];
-  double get totalPrice => cartItems.fold(0, (sum, item) => sum + item.price);
+  double totalPrice = 0;
   static CartProvider get instance => CartProvider();
   void addToCart(Book book) {
     if (cartItems.contains(book)) {
@@ -13,27 +13,50 @@ class CartProvider extends ChangeNotifier {
       cartItems.add(book);
       print('added  book');
     }
+    totalPrice = cartItems.fold(
+      0,
+      (sum, item) => sum + (item.price * item.quantity),
+    );
     notifyListeners();
   }
 
   void removeFromCart(Book book) {
     cartItems.remove(book);
+    totalPrice = cartItems.fold(
+      0,
+      (sum, item) => sum + (item.price * item.quantity),
+    );
     notifyListeners();
   }
 
   void clearCart() {
     cartItems.clear();
+    totalPrice = 0;
     notifyListeners();
   }
 
   void increaseQuantity(Book book) {
     book.quantity++;
     print('increased quuantity');
+    totalPrice = cartItems.fold(
+      0,
+      (sum, item) => sum + (item.price * item.quantity),
+    );
     notifyListeners();
   }
 
   void decreaseQuantity(Book book) {
-    book.quantity--;
-    notifyListeners();
+    if (book.quantity > 1) {
+      book.quantity--;
+      totalPrice = cartItems.fold(
+        0,
+        (sum, item) => sum + (item.price * item.quantity),
+      );
+      notifyListeners();
+    } else if (book.quantity == 1) {
+      removeFromCart(book);
+    } else {
+      print('Quantity is already 0');
+    }
   }
 }
