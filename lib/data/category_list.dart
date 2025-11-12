@@ -5,12 +5,12 @@ import 'package:sectionweek2/models/category.dart';
 class CategoryList {
   static final Category business = Category(
     "Business",
-    Colors.blue.withOpacity(0.3),
-    Colors.indigo,
+    const Color.fromRGBO(33, 150, 243, 1).withOpacity(0.3),
+    const Color.fromRGBO(63, 81, 181, 1),
   );
   static final Category novel = Category(
     "Novel",
-    Colors.pinkAccent.withOpacity(0.2),
+    const Color.fromRGBO(255, 64, 129, 1).withOpacity(0.2),
     Colors.black54,
   );
   static final Category biography = Category(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sectionweek2/controllers/bookProvider.dart';
 import 'package:sectionweek2/screens/home_screens/home_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {

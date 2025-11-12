@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sectionweek2/controllers/bookProvider.dart';
 import 'package:sectionweek2/controllers/categoryProvider.dart';
 import 'package:sectionweek2/data/book_list.dart';
 import 'package:sectionweek2/screens/home_screens/widgets/bookSlider.dart';
 
 Widget filteredBooks(BuildContext context) {
-  return Consumer<CategoryProvider>(
-    builder: (context, categoryProvider, child) {
+  return Consumer2<CategoryProvider, BookProvider>(
+    builder: (context, categoryProvider, bookProvider, child) {
       return Container(
         child: categoryProvider.selectedCategory == null
             ? Column(
@@ -32,7 +33,7 @@ Widget filteredBooks(BuildContext context) {
                       ),
                     ],
                   ),
-                  makeBookSlider(BookList.newArrivalBooks, context),
+                  makeBookSlider(bookProvider.books.sublist(0, 5), context),
                   Container(
                     width: double.infinity,
                     height: 150.0,
@@ -76,7 +77,7 @@ Widget filteredBooks(BuildContext context) {
                       ),
                     ],
                   ),
-                  makeBookSlider(BookList.recommendBooks, context),
+                  makeBookSlider(bookProvider.books.sublist(6, 10), context),
                 ],
               )
             : Column(
@@ -105,7 +106,7 @@ Widget filteredBooks(BuildContext context) {
                     ],
                   ),
                   makeBookSliderVertical(
-                    BookList.allBooks
+                    bookProvider.books
                         .where(
                           (book) =>
                               book.category ==

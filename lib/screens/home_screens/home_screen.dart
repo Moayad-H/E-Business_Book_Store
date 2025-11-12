@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:sectionweek2/data/book_list.dart';
+import 'package:provider/provider.dart';
+import 'package:sectionweek2/controllers/bookProvider.dart';
 import 'package:sectionweek2/screens/cart_screen/cart_screen.dart';
 import 'package:sectionweek2/screens/home_screens/home_content.dart';
-import 'package:sectionweek2/screens/home_screens/widgets/bookSlider.dart';
-import 'package:sectionweek2/screens/home_screens/widgets/category.dart';
-import 'package:sectionweek2/screens/home_screens/widgets/searchbar.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,13 +12,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final books = [
-    {'title': 'Atomic Habits', 'author': 'James Clear'},
-    {'title': 'Deep Work', 'author': 'Cal Newport'},
-    {'title': 'The Lean Startup', 'author': 'Eric Ries'},
-  ];
-
   final Color _accentColor = Color(0xFF272727);
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<BookProvider>().fetchBooks();
+    });
+  }
 
   int _currentIndex = 0;
 
@@ -48,11 +48,21 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: _pages[_currentIndex],
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await context.read<BookProvider>().fetchBooks();
+        },
+        child: Consumer<BookProvider>(
+          builder: (context, bookProvider, child) => Skeletonizer(
+            enabled: bookProvider.booksLoading,
+            child: SafeArea(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: _pages[_currentIndex],
+                ),
+              ),
+            ),
           ),
         ),
       ),
