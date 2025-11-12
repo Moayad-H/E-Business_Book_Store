@@ -32,24 +32,6 @@ Widget homeContent(BuildContext context) {
       ),
       SizedBox(height: 8.0),
       filteredBooks(context),
-      // ListView.builder(
-      //   itemCount: books.length,
-      //   itemBuilder: (context, index) {
-      //     final book = books[index];
-      //     return ListTile(
-      //       title: Text(book['title']!),
-      //       subtitle: Text(book['author']!),
-      //       onTap: () {
-      //         // Navigator.push(
-      //         //   context,
-      //         //   MaterialPageRoute(
-      //         //     builder: (context) => BookDetailsScreen(book: book),
-      //         //   ),
-      //         // );
-      //       },
-      //     );
-      //   },
-      // ),
     ],
   );
 }
