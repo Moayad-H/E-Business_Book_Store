@@ -56,12 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, bookProvider, child) => Skeletonizer(
             enabled: bookProvider.booksLoading,
             child: SafeArea(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: _pages[_currentIndex],
-                ),
-              ),
+              child: bookProvider.booksLoading == true
+                  ? Center(child: CircularProgressIndicator())
+                  : SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: _pages[_currentIndex],
+                      ),
+                    ),
             ),
           ),
         ),

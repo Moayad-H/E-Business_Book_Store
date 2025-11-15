@@ -13,6 +13,7 @@ class Book {
   final String? publishedDate;
   final String? isbn;
   final Category category;
+  final bool? isPopular;
   int quantity;
 
   Book({
@@ -20,6 +21,7 @@ class Book {
     required this.price,
     required this.image,
     required this.category,
+    this.isPopular,
     this.author,
     this.rating,
     this.pages,

@@ -34,8 +34,9 @@ class BookRepo {
           publishedDate: data['publishedDate'],
           isbn: data['isbn'],
           quantity: data['quantity']?.toInt() ?? 1,
+          isPopular: data['isPopular'] ?? false,
         );
-
+        print('isPopular:${book.isPopular}');
         fetchedBooks.add(book);
       }
 
@@ -133,7 +134,6 @@ class BookRepo {
     }
   }
 
-  /// Helper method to map category name string to Category object
   static Category _getCategoryFromName(String categoryName) {
     switch (categoryName.toLowerCase()) {
       case 'business':

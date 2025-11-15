@@ -33,7 +33,12 @@ Widget filteredBooks(BuildContext context) {
                       ),
                     ],
                   ),
-                  makeBookSlider(bookProvider.books.sublist(0, 5), context),
+                  makeBookSlider(
+                    bookProvider.books
+                        .where((book) => book.isPopular == true)
+                        .toList(),
+                    context,
+                  ),
                   Container(
                     width: double.infinity,
                     height: 150.0,
@@ -77,7 +82,7 @@ Widget filteredBooks(BuildContext context) {
                       ),
                     ],
                   ),
-                  makeBookSlider(bookProvider.books.sublist(6, 10), context),
+                  makeBookSlider(bookProvider.books, context),
                 ],
               )
             : Column(
