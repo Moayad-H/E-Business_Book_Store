@@ -17,7 +17,10 @@ class BookProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> addBooks() async {
+  Future<void> addBooks({Book? newBook}) async {
+    if (newBook != null) {
+      BookList.allBooks.add(newBook);
+    }
     await BookRepo.addBooks(BookList.allBooks);
     print('Books added');
     notifyListeners();

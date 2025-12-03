@@ -8,7 +8,14 @@ import 'package:sectionweek2/screens/welcome_Screen/welcomeScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: 'AIzaSyCTwHx8Qt37s3iaIyyF408jUMIgOiyKhmY',
+      appId: '1:1494408629:ios:df8cb1c4e22b77e14dcdfc',
+      messagingSenderId: '1494408629',
+      projectId: 'e-business-section',
+    ),
+  );
   runApp(
     MultiProvider(
       providers: [

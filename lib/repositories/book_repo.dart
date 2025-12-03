@@ -109,6 +109,7 @@ class BookRepo {
         if (book.isbn != null) {
           bookData['isbn'] = book.isbn;
         }
+        print('added BookData');
         // Add document to batch
         DocumentReference docRef = _firestore.collection('books').doc();
         batch.set(docRef, bookData);

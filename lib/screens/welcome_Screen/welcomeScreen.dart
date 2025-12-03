@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sectionweek2/controllers/bookProvider.dart';
-import 'package:sectionweek2/screens/home_screens/home_screen.dart';
+import 'package:sectionweek2/screens/sign_in/sign_in_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -28,7 +26,7 @@ class WelcomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
               child: Text('Get Started', style: TextStyle(fontSize: 22)),

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sectionweek2/data/book_list.dart';
-import 'package:sectionweek2/data/category_list.dart';
-import 'package:sectionweek2/models/category.dart';
 import 'package:sectionweek2/screens/filtered_books.dart';
-import 'package:sectionweek2/screens/home_screens/widgets/bookSlider.dart';
 import 'package:sectionweek2/screens/home_screens/widgets/category.dart';
 import 'package:sectionweek2/screens/home_screens/widgets/searchbar.dart';
 

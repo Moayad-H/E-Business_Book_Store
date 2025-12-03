@@ -68,6 +68,24 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "firebase_auth",
+      "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/firebase_auth-6.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "firebase_auth_platform_interface",
+      "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/firebase_auth_platform_interface-8.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "firebase_auth_web",
+      "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/firebase_auth_web-6.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "firebase_core",
       "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/firebase_core-4.2.1",
       "packageUri": "lib/",
@@ -114,6 +132,18 @@
       "rootUri": "file:///Users/moayadhamza/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.8"
+    },
+    {
+      "name": "http",
+      "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/http-1.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/http_parser-4.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
     },
     {
       "name": "iconsax",
@@ -232,6 +262,12 @@
     {
       "name": "test_api",
       "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/test_api-0.7.6",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
+    },
+    {
+      "name": "typed_data",
+      "rootUri": "file:///Users/moayadhamza/.pub-cache/hosted/pub.dev/typed_data-1.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
