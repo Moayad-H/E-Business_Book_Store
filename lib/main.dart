@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sectionweek2/controllers/bookProvider.dart';
 import 'package:sectionweek2/controllers/cartProvider.dart';
 import 'package:sectionweek2/controllers/categoryProvider.dart';
+import 'package:sectionweek2/controllers/profileProvider.dart';
 import 'package:sectionweek2/screens/welcome_Screen/welcomeScreen.dart';
 
 void main() async {
@@ -22,6 +23,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => CartProvider()),
         ChangeNotifierProvider(create: (context) => CategoryProvider()),
         ChangeNotifierProvider(create: (context) => BookProvider()),
+        ChangeNotifierProvider(create: (context) => ProfileProvider()),
       ],
       child: const MyApp(),
     ),

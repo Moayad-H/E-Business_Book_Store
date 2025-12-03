@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sectionweek2/screens/home_screens/home_screen.dart';
 import 'package:sectionweek2/screens/sign_in/sign_in_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -24,10 +26,17 @@ class WelcomeScreen extends StatelessWidget {
             width: size.width * 0.5,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
+                if (FirebaseAuth.instance.currentUser != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                }
               },
               child: Text('Get Started', style: TextStyle(fontSize: 22)),
             ),
