@@ -20,8 +20,8 @@ class WelcomeScreen extends StatelessWidget {
               'Welcome to the book store',
             ),
           ),
-          Image.asset('assets/welcome_image.png'),
 
+          // Image.asset('assets/welcome_image.png'),
           SizedBox(
             width: size.width * 0.5,
             child: ElevatedButton(

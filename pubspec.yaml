@@ -41,6 +41,8 @@ dependencies:
   cloud_firestore: ^6.1.0
   skeletonizer: ^2.1.0+1
   firebase_auth: ^6.1.2
+  flutter_epub_viewer: ^1.2.6
+  flutter_inappwebview: ^6.1.5
 
 dev_dependencies:
   flutter_test:

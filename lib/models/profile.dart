@@ -1,11 +1,10 @@
-import 'package:sectionweek2/data/category_list.dart';
 import 'package:sectionweek2/models/book.dart';
 
 class Profile {
   final String name;
   final String email;
   final String image;
-  final List<Book> purchasedBooks;
+  final List<Book?> purchasedBooks;
 
   Profile({
     required this.name,
@@ -20,7 +19,15 @@ class Profile {
       email: json['email'] ?? '',
       image: json['image'] ?? '',
       purchasedBooks: (json['purchasedBooks'] as List<dynamic>)
-          .map((book) => Book.fromJson(book as Map<String, dynamic>))
+          .map((book) {
+            try {
+              return Book.fromJson(book as Map<String, dynamic>);
+            } catch (e) {
+              print('Error parsing book: $e');
+              return null;
+            }
+          })
+          .where((book) => book != null)
           .toList(),
     );
   }
