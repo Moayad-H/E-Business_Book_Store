@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sectionweek2/controllers/bookProvider.dart';
 import 'package:sectionweek2/screens/cart_screen/cart_screen.dart';
 import 'package:sectionweek2/screens/home_screens/home_content.dart';
+import 'package:sectionweek2/screens/profile/profile_screen.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final List<Widget> _pages = [
       homeContent(context),
       CartScreen(),
-      Text('My Page'),
+      ProfilePage(),
     ];
     return Scaffold(
       appBar: AppBar(
